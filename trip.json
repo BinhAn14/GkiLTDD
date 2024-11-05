@@ -1,0 +1,71 @@
+[{
+        "name": "Trip to Hanoi",
+        "destination": "Hanoi",
+        "price": 150,
+        "startDate": "2023-12-01",
+        "endDate": "2023-12-07"
+    },
+    {
+        "name": "Trip to Saigon",
+        "destination": "Ho Chi Minh City",
+        "price": 200,
+        "startDate": "2024-01-10",
+        "endDate": "2024-01-15"
+    },
+    {
+        "name": "Beach Holiday",
+        "destination": "Nha Trang",
+        "price": 250,
+        "startDate": "2024-02-05",
+        "endDate": "2024-02-10"
+    },
+    {
+        "name": "Mountain Adventure",
+        "destination": "Sapa",
+        "price": 300,
+        "startDate": "2024-03-01",
+        "endDate": "2024-03-07"
+    },
+    {
+        "name": "Cultural Tour",
+        "destination": "Hue",
+        "price": 180,
+        "startDate": "2024-04-10",
+        "endDate": "2024-04-15"
+    },
+    {
+        "name": "Island Escape",
+        "destination": "Phu Quoc",
+        "price": 400,
+        "startDate": "2024-05-01",
+        "endDate": "2024-05-07"
+    },
+    {
+        "name": "Ancient Town Visit",
+        "destination": "Hoi An",
+        "price": 220,
+        "startDate": "2024-06-10",
+        "endDate": "2024-06-15"
+    },
+    {
+        "name": "Wildlife Safari",
+        "destination": "Cat Tien National Park",
+        "price": 350,
+        "startDate": "2024-07-01",
+        "endDate": "2024-07-05"
+    },
+    {
+        "name": "Nature Discovery",
+        "destination": "Phong Nha",
+        "price": 280,
+        "startDate": "2024-08-10",
+        "endDate": "2024-08-15"
+    },
+    {
+        "name": "Luxury Cruise",
+        "destination": "Ha Long Bay",
+        "price": 500,
+        "startDate": "2024-09-01",
+        "endDate": "2024-09-07"
+    }
+]

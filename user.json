@@ -1,0 +1,61 @@
+[{
+        "name": "Nguyen Van A",
+        "email": "nguyenvana@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Tran Thi B",
+        "email": "tranthib@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Le Van C",
+        "email": "levanc@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Pham Thi D",
+        "email": "phamthid@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Hoang Van E",
+        "email": "hoangvane@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Do Thi F",
+        "email": "dothif@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Bui Van G",
+        "email": "buivang@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Dang Thi H",
+        "email": "dangthih@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Vu Van I",
+        "email": "vuvani@example.com",
+        "password": "password123",
+        "trips": []
+    },
+    {
+        "name": "Nguyen Thi J",
+        "email": "nguyenthij@example.com",
+        "password": "password123",
+        "trips": []
+    }
+]
