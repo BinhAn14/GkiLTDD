@@ -1,32 +1,56 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const tripRoutes = require('./routes/tripRoutes');
-const userRoutes = require('./routes/userRoutes');
-require('dotenv').config(); // Load biến môi trường từ .env
+const express = require("express");
+const mongoose = require("mongoose");
+const Trip = require("./models/tripModel"); // Import model Trip
+const path = require("path");
+const tripRoutes = require("./routes/tripRoutes");
+const userRoutes = require("./routes/userRoutes");
+require("dotenv").config(); // Nạp biến môi trường từ .env
 
 const app = express();
 app.use(express.json());
 
-// Kết nối cơ sở dữ liệu MongoDB
-const mongoURI = process.env.MONGODB_URI || 'mongodb+srv://an100277:AeeReISLciRp5Aqf@binhan.awftk.mongodb.net/tourService?retryWrites=true&w=majority';
+// Cấu hình route
+app.use("/api", tripRoutes);
+app.use("/api/users", userRoutes);
 
-mongoose.connect(mongoURI, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        connectTimeoutMS: 30000, // Tăng thời gian chờ kết nối
-        socketTimeoutMS: 30000, // Tăng thời gian chờ socket
-    })
-    .then(() => console.log('Kết nối cơ sở dữ liệu thành công'))
-    .catch((error) => console.error('Lỗi kết nối cơ sở dữ liệu:', error));
+// Cấu hình đường dẫn tới thư mục chứa tài nguyên tĩnh (images, css, js,...)
+app.use(
+  "/resource/images",
+  express.static(path.join(__dirname, "resource", "images"))
+);
 
-// Sử dụng routes
-app.use('/api/trips', tripRoutes);
-app.use('/api/users', userRoutes);
+// Kiểm tra biến môi trường Mongo URI
+const mongoUri = process.env.MONGO_URI; // Lấy URI từ biến môi trường
 
-// Khởi động server
-const PORT = process.env.PORT || 3000;
+if (!mongoUri) {
+  console.error("Lỗi: MONGO_URI không được định nghĩa trong file .env");
+  process.exit(1); // Dừng server nếu thiếu URI
+}
+
+// Kết nối MongoDB Atlas (không cần các tùy chọn deprecated nữa)
+mongoose
+  .connect(mongoUri)
+  .then(() => {
+    console.log("Đã kết nối thành công tới MongoDB Atlas");
+    processDatabase(); // Gọi hàm sau khi kết nối thành công
+  })
+  .catch((err) => {
+    console.error("Lỗi kết nối:", err);
+    process.exit(1); // Dừng server nếu lỗi kết nối
+  });
+
+// Hàm xử lý dữ liệu
+const processDatabase = async () => {
+  try {
+    const trips = await Trip.find(); // Sử dụng model Trip để lấy dữ liệu
+    console.log("Kết nối thành công");
+  } catch (err) {
+    console.error("Lỗi khi xử lý dữ liệu:", err);
+  }
+};
+
+// Cổng
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Server đang chạy trên cổng ${PORT}`);
+  console.log(`Server đang chạy trên cổng ${PORT}`);
 });
-
-module.exports = app;

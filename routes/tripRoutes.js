@@ -1,10 +1,12 @@
-const express = require('express');
-const tripController = require('../controllers/tripController');
+const express = require("express");
 const router = express.Router();
+const tripController = require("../controllers/tripController");
 
-router.post('/', tripController.createTrip);
-router.get('/', tripController.getTrips);
-
-// Các route khác nếu cần
+// Get all trips
+router.get("/trips", tripController.getAllTrips);
+// Thêm trip mới
+router.post("/trips", tripController.addTrip);
+// Cập nhật trip theo ID
+router.put("/trips/:id", tripController.updateTrip);
 
 module.exports = router;

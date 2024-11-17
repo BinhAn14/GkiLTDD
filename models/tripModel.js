@@ -1,11 +1,18 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const tripSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    destination: { type: String, required: true },
+const tourSchema = new mongoose.Schema(
+  {
+    tripName: { type: String, required: true },
+    time: { type: Date, required: true },
+    days: { type: Number, required: true },
     price: { type: Number, required: true },
-    startDate: { type: Date, required: true },
-    endDate: { type: Date, required: true },
-});
+    avatar: { type: String, required: true },
+  },
+  {
+    timestamps: true,
+  }
+);
 
-module.exports = mongoose.model('Trip', tripSchema);
+const Tour = mongoose.model("Tour", tourSchema);
+
+module.exports = Tour;
