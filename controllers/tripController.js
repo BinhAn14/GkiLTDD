@@ -13,12 +13,18 @@ exports.getAllTrips = async(req, res) => {
 // Thêm một trip mới
 exports.addTrip = async(req, res) => {
     const { cityName, tripName, guestName, time } = req.body;
+
     try {
-        // Lưu trip mới vào database
+        // Tạo đối tượng Trip mới
         const newTrip = new Trip({ cityName, tripName, guestName, time });
-        res.status(201).json(newTrip); // Tra ve du lieu Trip moi vua tao
+
+        // Lưu Trip mới vào cơ sở dữ liệu
+        const savedTrip = await newTrip.save();
+
+        // Trả về Trip đã lưu với mã trạng thái 201 (Created)
+        res.status(201).json(savedTrip);
     } catch (err) {
-        console.log("Lỗi khi thêm dữ iệu vào trip:", err);
+        console.log("Lỗi khi thêm dữ liệu vào trip:", err);
         res.status(500).json({ error: "Lỗi khi thêm dữ liệu" });
     }
 };
